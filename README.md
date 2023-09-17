@@ -1,0 +1,1 @@
+# azure-notify-costreport-for-slack-function
