@@ -26,6 +26,29 @@ Nugetから以下をインストール。
 
 設定内容は[インフラのリポジトリ](https://github.com/jinka1997/azure-notify-costreport-for-slack-infra)を参照のこと。
 
+## コスト分析APIに渡しているJSON
+```
+{
+    "type": "Usage",
+    "timeframe": "MonthToDate",
+    "dataset": {
+        "granularity": "Daily",
+        "aggregation": {
+            "totalCost": {
+                "name": "PreTaxCost",
+                "function": "Sum"
+            }
+        },
+        "grouping": [
+            {
+                "type": "Dimension",
+                "name": "ResourceType"
+            }
+        ]
+    }
+}
+```
+
 ## デプロイ
 Github Actionsでデプロイする。ワークフローは以下の通り作成。
 事前にインフラのリポジトリを使用して、Azure Functionsを作成しておくこと。
